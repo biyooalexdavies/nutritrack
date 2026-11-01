@@ -1,0 +1,1165 @@
+/* ========================================================
+   NutriTrack - Pure Vanilla CSS
+   (No CSS Variables, No Frameworks, No Preprocessors)
+   ======================================================== */
+
+/* Reset & Box Sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------
+   Header & Navigation
+   -------------------------------------------------------- */
+.app-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.logo-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.logo-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.date-navigator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.date-display-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.date-picker-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.date-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------
+   Buttons & Links
+   -------------------------------------------------------- */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.btn-icon {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.btn-icon:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.btn-danger {
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+.btn-danger-outline {
+  background-color: #ffffff;
+  color: #ef4444;
+  border: 1px solid #fca5a5;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.btn-danger-outline:hover {
+  background-color: #fef2f2;
+}
+
+.link-btn {
+  background: none;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.link-btn-danger {
+  background: none;
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.link-btn-danger:hover {
+  text-decoration: underline;
+}
+
+.file-upload-label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------
+   Main Layout Container
+   -------------------------------------------------------- */
+.app-main {
+  flex: 1;
+  padding: 24px 16px 48px 16px;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --------------------------------------------------------
+   Cards & Common Elements
+   -------------------------------------------------------- */
+.metric-card,
+.form-card,
+.trend-card,
+.tools-card,
+.meal-category-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.card-description {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+}
+
+/* --------------------------------------------------------
+   Dashboard Grid (3 Cards Top)
+   -------------------------------------------------------- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Calorie Ring Summary Card */
+.calorie-summary-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 16px;
+  margin: 10px 0 16px 0;
+}
+
+.calorie-circle-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  stroke: #f1f5f9;
+}
+
+.ring-progress {
+  stroke: #10b981;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.4s ease, stroke 0.3s ease;
+}
+
+.ring-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ring-calories {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.ring-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calorie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.legend-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.dot-blue { background-color: #3b82f6; }
+.dot-green { background-color: #10b981; }
+.dot-purple { background-color: #8b5cf6; }
+.dot-red { background-color: #ef4444; }
+.dot-amber { background-color: #f59e0b; }
+.dot-teal { background-color: #14b8a6; }
+
+.status-banner {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.banner-normal {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.banner-warning {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Macronutrient Card */
+.macro-bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.macro-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.macro-name {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #334155;
+}
+
+.macro-name span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.macro-numbers {
+  color: #1e293b;
+}
+
+.macro-cals {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background-color: #f1f5f9;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.fill-red { background-color: #ef4444; }
+.fill-amber { background-color: #f59e0b; }
+.fill-teal { background-color: #14b8a6; }
+.fill-water { background-color: #0ea5e9; }
+
+.macro-ratio-wrapper {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.ratio-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.ratio-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background-color: #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.ratio-slice {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.ratio-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Quick Log & Shortcuts Card */
+.quick-btn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.quick-add-btn {
+  background-color: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 4px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.quick-add-btn:hover {
+  background-color: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.quick-add-btn.highlight {
+  grid-column: span 3;
+  background-color: #f0f9ff;
+  border-color: #bae6fd;
+  color: #0369a1;
+}
+
+.quick-add-btn.highlight:hover {
+  background-color: #e0f2fe;
+}
+
+.water-tracker {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.water-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #475569;
+}
+
+/* --------------------------------------------------------
+   Food Entry Form
+   -------------------------------------------------------- */
+.form-hint {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.food-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.form-group.flex-2 {
+  flex: 2;
+  min-width: 240px;
+}
+
+.form-group.flex-1 {
+  flex: 1;
+}
+
+.btn-group-form {
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.btn-group-form .btn-primary {
+  height: 42px;
+  padding: 0 24px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.required {
+  color: #ef4444;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  font-family: inherit;
+  font-size: 14px;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* --------------------------------------------------------
+   Meal Categories & Logged Items List
+   -------------------------------------------------------- */
+.meals-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.filter-input {
+  width: 240px;
+  padding: 8px 12px;
+  font-size: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.meal-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.meal-category-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: 16px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.category-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-icon {
+  font-size: 20px;
+}
+
+.category-title-group h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.category-subtotal {
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #f8fafc;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.empty-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 13px;
+  color: #94a3b8;
+  font-style: italic;
+  text-align: center;
+  padding: 24px 8px;
+  border: 1px dashed #e2e8f0;
+  border-radius: 8px;
+}
+
+/* Individual Logged Food Item */
+.food-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.food-item:hover {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.food-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.food-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.food-item-macros {
+  font-size: 11px;
+  color: #64748b;
+  display: flex;
+  gap: 6px;
+}
+
+.food-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.food-item-calories {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.btn-delete-item {
+  background: none;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.btn-delete-item:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+/* --------------------------------------------------------
+   7-Day History Trend Chart
+   -------------------------------------------------------- */
+.chart-wrapper {
+  margin-top: 16px;
+  padding: 16px 8px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 180px;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #cbd5e1;
+  position: relative;
+}
+
+.chart-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  position: relative;
+  cursor: pointer;
+}
+
+.chart-bar-container {
+  width: 100%;
+  max-width: 44px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  background-color: #e2e8f0;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.chart-bar-fill {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.4s ease;
+}
+
+.chart-bar-fill.bar-under {
+  background-color: #10b981;
+}
+
+.chart-bar-fill.bar-over {
+  background-color: #ef4444;
+}
+
+.chart-bar-fill.bar-current {
+  box-shadow: inset 0 0 0 2px #1e293b;
+}
+
+.chart-day-label {
+  position: absolute;
+  bottom: -22px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.chart-val-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.chart-legend-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.chart-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.chart-swatch.under { background-color: #10b981; }
+.chart-swatch.over { background-color: #ef4444; }
+.chart-swatch.today { background-color: #1e293b; }
+
+/* --------------------------------------------------------
+   Data Tools Section
+   -------------------------------------------------------- */
+.tools-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: #ffffff;
+}
+
+.tools-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.tools-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.tools-desc {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.tools-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------
+   Modal Dialog
+   -------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal-backdrop.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.close-btn {
+  background: none;
+  font-size: 22px;
+  color: #64748b;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #0f172a;
+}
+
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-helper {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.preset-goal-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip-btn {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.chip-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 20px;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* --------------------------------------------------------
+   Footer
+   -------------------------------------------------------- */
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: #64748b;
+  border-top: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------
+   Toast Notifications
+   -------------------------------------------------------- */
+.toast-msg {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+  animation: toastSlideUp 0.3s ease-out;
+}
+
+@keyframes toastSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------- */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date-navigator {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .form-row.main-fields,
+  .form-row.macro-fields {
+    flex-direction: column;
+  }
+
+  .btn-group-form {
+    align-self: stretch;
+  }
+
+  .btn-group-form .btn-primary {
+    width: 100%;
+  }
+
+  .quick-btn-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-add-btn.highlight {
+    grid-column: span 2;
+  }
+
+  .tools-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tools-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .tools-actions button,
+  .tools-actions label {
+    width: 100%;
+    text-align: center;
+  }
+}
+
