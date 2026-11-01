@@ -2,6 +2,8 @@
 
 A lightweight, responsive calorie and macronutrient tracking web app built with **100% vanilla HTML, CSS, and JavaScript**. No frameworks, no Tailwind, no CSS variables, and zero external dependencies. All data is persisted directly in the browser's `localStorage`.
 
+🌐 **Live Demo**: [https://biyooalexdavies.github.io/nutritrack/](https://biyooalexdavies.github.io/nutritrack/)
+
 ---
 
 ## ✨ Features
